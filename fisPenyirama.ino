@@ -54,7 +54,6 @@ void setup()
     //deklarasi pin
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
-    pinMode(LEDPin, OUTPUT);
 
     dht.begin();
     gravityTds.setPin(TdsSensorPin);
