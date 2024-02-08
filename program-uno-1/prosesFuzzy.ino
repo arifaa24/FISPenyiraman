@@ -1,4 +1,56 @@
 //***********************************************************************
+// Support functions for Fuzzy Inference System                          
+//***********************************************************************
+// Trapezoidal Member Function
+FIS_TYPE fis_trapmf(FIS_TYPE x, FIS_TYPE* p)
+{
+    FIS_TYPE a = p[0], b = p[1], c = p[2], d = p[3];
+    FIS_TYPE t1 = ((x <= c) ? 1 : ((d < x) ? 0 : ((c != d) ? ((d - x) / (d - c)) : 0)));
+    FIS_TYPE t2 = ((b <= x) ? 1 : ((x < a) ? 0 : ((a != b) ? ((x - a) / (b - a)) : 0)));
+    return (FIS_TYPE) min(t1, t2);
+}
+
+// Triangular Member Function
+FIS_TYPE fis_trimf(FIS_TYPE x, FIS_TYPE* p)
+{
+    FIS_TYPE a = p[0], b = p[1], c = p[2];
+    FIS_TYPE t1 = (x - a) / (b - a);
+    FIS_TYPE t2 = (c - x) / (c - b);
+    if ((a == b) && (b == c)) return (FIS_TYPE) (x == a);
+    if (a == b) return (FIS_TYPE) (t2*(b <= x)*(x <= c));
+    if (b == c) return (FIS_TYPE) (t1*(a <= x)*(x <= b));
+    t1 = min(t1, t2);
+    return (FIS_TYPE) max(t1, 0);
+}
+
+FIS_TYPE fis_min(FIS_TYPE a, FIS_TYPE b)
+{
+    return min(a, b);
+}
+
+FIS_TYPE fis_max(FIS_TYPE a, FIS_TYPE b)
+{
+    return max(a, b);
+}
+
+FIS_TYPE fis_array_operation(FIS_TYPE *array, int size, _FIS_ARR_OP pfnOp)
+{
+    int i;
+    FIS_TYPE ret = 0;
+
+    if (size == 0) return ret;
+    if (size == 1) return array[0];
+
+    ret = array[0];
+    for (i = 1; i < size; i++)
+    {
+        ret = (*pfnOp)(ret, array[i]);
+    }
+
+    return ret;
+}
+
+//***********************************************************************
 // Data for Fuzzy Inference System                                       
 //***********************************************************************
 // Pointers to the implementations of member functions
