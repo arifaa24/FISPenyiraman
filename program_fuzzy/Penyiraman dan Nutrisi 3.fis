@@ -1,0 +1,79 @@
+[System]
+Name='Penyiraman dan Nutrisi 3'
+Type='mamdani'
+Version=2.0
+NumInputs=3
+NumOutputs=2
+NumRules=24
+AndMethod='min'
+OrMethod='max'
+ImpMethod='min'
+AggMethod='max'
+DefuzzMethod='mom'
+
+[Input1]
+Name='iSuhu'
+Range=[0 35]
+NumMFs=3
+MF1='Dingin':'trapmf',[0 0 25 26.5]
+MF2='Normal':'trimf',[25 26.5 28]
+MF3='Panas':'trapmf',[26.5 28 35 35]
+
+[Input2]
+Name='iKelembapan'
+Range=[0 100]
+NumMFs=2
+MF1='Kering':'trapmf',[0 0 66.5 76.5]
+MF2='Basah':'trapmf',[66.5 76.5 100 100]
+
+[Input3]
+Name='iNutrisi'
+Range=[0 1000]
+NumMFs=4
+MF1='Ncukup':'trimf',[650 750 850]
+MF2='Nlebih':'trapmf',[750 850 1000 1000]
+MF3='Nsangat_kurang':'trapmf',[0 0 550 650]
+MF4='Nkurang':'trimf',[550 650 750]
+
+[Output1]
+Name='oPenyiraman'
+Range=[0 255]
+NumMFs=3
+MF1='pSedang':'trimf',[100 150 200]
+MF2='pRendah':'trapmf',[0 0 125 150]
+MF3='pKuat':'trimf',[150 255 255]
+
+[Output2]
+Name='oNutrisi'
+Range=[0 255]
+NumMFs=4
+MF1='nMati':'trimf',[0 0 1]
+MF2='nSedang':'trimf',[1 80 160]
+MF3='nCepat':'trimf',[80 255 255]
+MF4='nLambat':'trimf',[0 40 80]
+
+[Rules]
+1 1 1, 1 4 (1) : 1
+1 2 1, 2 4 (1) : 1
+1 1 2, 1 1 (1) : 1
+1 2 2, 2 1 (1) : 1
+1 1 3, 2 3 (1) : 1
+1 1 4, 2 2 (1) : 1
+1 2 3, 2 3 (1) : 1
+1 2 4, 2 2 (1) : 1
+2 1 1, 1 4 (1) : 1
+2 2 1, 2 4 (1) : 1
+2 1 2, 1 1 (1) : 1
+2 2 2, 2 1 (1) : 1
+2 1 3, 2 3 (1) : 1
+2 2 3, 2 3 (1) : 1
+2 1 4, 2 2 (1) : 1
+2 2 4, 2 2 (1) : 1
+3 1 1, 3 4 (1) : 1
+3 2 1, 1 4 (1) : 1
+3 1 2, 3 1 (1) : 1
+3 2 2, 1 1 (1) : 1
+3 1 3, 2 3 (1) : 1
+3 2 3, 2 3 (1) : 1
+3 1 4, 2 2 (1) : 1
+3 2 4, 2 2 (1) : 1
