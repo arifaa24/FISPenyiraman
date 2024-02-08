@@ -2,6 +2,9 @@
 // referensi kalo engga tau type data uint
 // https://www.badprog.com/c-type-what-are-uint8-t-uint16-t-uint32-t-and-uint64-t
 
+#ifndef configuratePin_h
+#define configuratePin_h
+
 #include <DHT.h>
 #include <GravityTDS.h>
 
@@ -41,3 +44,5 @@ const uint8_t in2 = 8;
 const uint8_t enB = 5; // Pin PWM untuk mengatur kecepatan motor B
 const uint8_t in3 = 6;
 const uint8_t in4 = 7;
+
+#endif
