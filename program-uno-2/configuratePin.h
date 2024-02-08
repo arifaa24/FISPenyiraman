@@ -19,7 +19,6 @@ DHT dht(DHTPIN, DHTTYPE);
 #define TDSSensorPin  A1
 uint16_t maximumRange = 200;        // kebutuhan akan maksimal range
 uint16_t minimumRange = 0;          // kebutuhan akan minimal range
-long duration, distance, levelair;  // waktu untuk kalkulasi jarak
 float temperature = 25.0, tdsValue = 0.0;
 // deklarasi objek TDS Sensor
 GravityTDS gravityTds;
@@ -27,6 +26,7 @@ GravityTDS gravityTds;
 // Sensor Ultrasonic HC-SR04 PIN
 #define echoPin       12
 #define trigPin       11
+long duration, distance, levelair;  // waktu untuk kalkulasi jarak
 
 // relay module pinout
 // reference default : HIGH = 0x1; LOW = 0x0
