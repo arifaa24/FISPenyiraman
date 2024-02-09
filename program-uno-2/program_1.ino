@@ -8,7 +8,7 @@ bool program1(void) {
   Serial.print(levelair);
   Serial.println(F(" cm"));
 
-  if (levelair > 12) {
+  if (levelair >= 12) {
     digitalWrite(relay1Pin, MATI);
     Serial.println(F("Relay 1 Mati"));
     return true;
