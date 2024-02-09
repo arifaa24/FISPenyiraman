@@ -1,7 +1,7 @@
 // buat variable lastTime untuk menyimpan nilai akhir millis
 unsigned long lastTimeSensorTDS = 0, lastTimeSensorDHT = 0;
 // buat batas interval/delay millis (untuk sensor TDS 1000ms dan DHT 3000ms)
-const uint16_t intervalTDS = 1000, intervalDHT = 3000;
+const uint16_t intervalTDS = 1000, intervalDHT = 5000;
 
 // program ultrasonic
 void sensorUltrasonic() {

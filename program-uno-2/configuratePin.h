@@ -26,7 +26,7 @@ GravityTDS gravityTds;
 // Sensor Ultrasonic HC-SR04 PIN
 #define echoPin       12
 #define trigPin       11
-
+long duration, distance, levelair;  // waktu untuk kalkulasi jarak
 
 // relay module pinout
 // reference default : HIGH = 0x1; LOW = 0x0
