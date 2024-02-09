@@ -3,6 +3,10 @@
 // - Karthik Nadig, USA                                                  
 // Please report bugs to: karthiknadig@gmail.com                         
 //***********************************************************************
+
+#ifndef fis_header_h
+#define fis_header_h
+
 #define FIS_TYPE float
 #define FIS_RESOLUSION 101
 #define FIS_MIN -3.4028235E+38
@@ -21,3 +25,5 @@ const int fis_gcR = 24;
 // deklarasi object fuzzy input dan output
 FIS_TYPE g_fisInput[fis_gcI];
 FIS_TYPE g_fisOutput[fis_gcO];
+
+#endif
