@@ -10,13 +10,13 @@
 #include "DHT.h"
 #include <EEPROM.h>
 #include "GravityTDS.h"
-#define DHTPIN 2     // Sensor DHT22 PIN
+#define DHTPIN 13     // Sensor DHT22 PIN
 #define DHTTYPE DHT22   // DHT 22  (AM2302), AM2321
 #define TdsSensorPin A1 // Sensor TDS PIN
 // Sensor Ultrasonic HC-SR04 PIN
 #define echoPin 12 //Echo Pin
 #define trigPin 11 //Trigger Pin 
-#define LEDPin 13
+//#define LEDPin 13
 DHT dht(DHTPIN, DHTTYPE);
 GravityTDS gravityTds;
 int relay1Pin = 4;
@@ -54,7 +54,6 @@ void setup()
     //deklarasi pin
     pinMode(trigPin, OUTPUT);
     pinMode(echoPin, INPUT);
-    pinMode(LEDPin, OUTPUT);
 
     dht.begin();
     gravityTds.setPin(TdsSensorPin);
