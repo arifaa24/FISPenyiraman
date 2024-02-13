@@ -29,8 +29,8 @@ void setup() {
   pinMode(relay1Pin, OUTPUT);
   pinMode(relay2Pin, OUTPUT);
   // Matikan semua relay saat dinyalakan MCU Arduino
-  digitalWrite(relay1Pin, MATI);
-  digitalWrite(relay2Pin, MATI);
+  digitalWrite(relay1Pin, HIGH);
+  digitalWrite(relay2Pin, HIGH);
 }
 
 void loop() {
@@ -39,7 +39,7 @@ void loop() {
     program2();
   }
   else {
-    digitalWrite(relay2Pin, MATI);
+    digitalWrite(relay2Pin, HIGH);
   }
   delay(50);
 }

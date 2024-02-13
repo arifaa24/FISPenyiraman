@@ -9,12 +9,12 @@ bool program1(void) {
   Serial.println(F(" cm"));
 
   if (levelair >= 12) {
-    digitalWrite(relay1Pin, MATI);
+    digitalWrite(relay1Pin, HIGH);
     Serial.println(F("Relay 1 Mati"));
     return true;
   }
   else {
-    digitalWrite(relay1Pin, HIDUP);
+    digitalWrite(relay1Pin, LOW);
     Serial.println(F("Relay 1 Hidup"));
     return false;
   }

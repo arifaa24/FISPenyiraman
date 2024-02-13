@@ -32,8 +32,8 @@ long duration, distance, levelair;  // waktu untuk kalkulasi jarak
 // reference default : HIGH = 0x1; LOW = 0x0
 #define relay1Pin     4
 #define relay2Pin     3
-#define MATI          0x1
-#define HIDUP         0x0
+//#define MATI          0x1
+//#define HIDUP         0x0
 
 // configurate pinout Motor
 // Motor A (Pompa nutrisi)
