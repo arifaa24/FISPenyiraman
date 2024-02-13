@@ -1,4 +1,7 @@
 // program pengukuran level air
+
+unsigned long lastDelayRelay = 0;
+
 bool program1(void) {
   // jalankan fungsi sensor ultrasonic
   sensorUltrasonic();
@@ -8,14 +11,17 @@ bool program1(void) {
   Serial.print(levelair);
   Serial.println(F(" cm"));
 
-  if (levelair >= 12) {
-    digitalWrite(relay1Pin, HIGH);
-    Serial.println(F("Relay 1 Mati"));
-    return true;
-  }
-  else {
-    digitalWrite(relay1Pin, LOW);
-    Serial.println(F("Relay 1 Hidup"));
-    return false;
+  if((unsigned long) (millis() - lastDelayRelay) >= 1000) {
+    lastDelayRelay = millis();
+    if (levelair >= 12) {
+      digitalWrite(relay1Pin, HIGH);
+      Serial.println(F("Relay 1 Mati"));
+      return true;
+    }
+    else {
+      digitalWrite(relay1Pin, LOW);
+      Serial.println(F("Relay 1 Hidup"));
+      return false;
+    }
   }
 }
