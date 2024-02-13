@@ -5,10 +5,12 @@ void program2(void) {
   // jalankan fungsi program sensor tds
   sensorTDS();
   if(tdsValue > 800) {
-    digitalWrite(relay2Pin, HIGH);
+    // digitalWrite(relay2Pin, HIGH);
+    relayState(relay2Pin, HIGH);
     Serial.println(F("Relay 2 Mati"));
   } else {
-    digitalWrite(relay2Pin, LOW);
+    // digitalWrite(relay2Pin, LOW);
+    relayState(relay2Pin, LOW);
     Serial.println(F("Relay 2 Hidup"));
   }
   

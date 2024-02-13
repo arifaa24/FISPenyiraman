@@ -39,7 +39,8 @@ void loop() {
     program2();
   }
   else {
-    digitalWrite(relay2Pin, HIGH);
+    // digitalWrite(relay2Pin, HIGH);
+    relayState(relay2Pin, HIGH);
   }
   delay(50);
 }
